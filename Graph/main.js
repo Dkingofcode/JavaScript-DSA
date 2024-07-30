@@ -24,20 +24,8 @@ class Graph {
     }
 
     addVertex(node){
-       const newNode = {
-           node: node,
-           neighbours: null
-       }
-       let index = 0;
-       if(!this.adjacencyList){
-        this.adjacencyList[index] = newNode;
-       }
 
-       while(this.adjacencyList[index] !== null){
-         index++;
-       }
-
-       this.adjacencyList[index] = newNode;
+       this.adjacencyList[node] = [];
 
        this.numberOfNodes++;
 
@@ -47,12 +35,28 @@ class Graph {
         // undirected Graph
        
         if(node1 && node2){
-            this.adjacencyList[node1] = this.adjacencyList[node2];
-            this.adjacencyList[node2] = this.adjacencyList[node1];
+            this.adjacencyList[node1].push(node2);
+            this.adjacencyList[node2].push(node1); 
         }
     }
 
     showConnections() {
+       const allNodes = Object.keys(this.adjacencyList);
+
+       for(let node of allNodes) {
+         let nodeConnections = this.adjacencyList[node];
+         let connections = "";
+         let vertex;
+         for (vertex of nodeConnections) {
+           connections += vertex + " ";   
+         }
+         console.log(node + "->" + connections);
+       }
+
+
+
+
+
       while(this.adjacencyList !== null){
         let index = 0;
         return this.adjacencyList[index++];
