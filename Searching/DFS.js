@@ -1,11 +1,11 @@
 // If you know a solution is not far from the root of the tree
-// BreadthFirstSearch
+ BreadthFirstSearch
 
 // If the tree is very deep and solutions are rare
-// DFS
+// BFS (DFS will take long);
 
 // If the tree is very wide
-// BreadthFirstSearch
+//DFS (BFS will need too much memory)
 
 // If solutions are frequent but located deep in the tree:
 // DFS
